@@ -1,0 +1,110 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.7/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"color": {
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"palette": [
+				{
+					"color": "#FFFFFF",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#111111",
+					"name": "Contrast",
+					"slug": "contrast"
+				}
+			]
+		},
+		"typography": {
+			"writingMode": true,
+			"defaultFontSizes": false,
+			"fluid": true,
+			"fontSizes": [
+				{
+					"fluid": {
+						"max": "0.75rem",
+						"min": "0.625rem"
+					},
+					"name": "Font Size 1",
+					"size": "0.625rem",
+					"slug": "font-size-1"
+				},
+				{
+					"fluid": {
+						"max": "0.875rem",
+						"min": "0.75rem"
+					},
+					"name": "Font Size 2",
+					"size": "0.75rem",
+					"slug": "font-size-2"
+				},
+				{
+                    "fluid": false,
+					"name": "Font Size 3",
+					"size": "1rem",
+					"slug": "font-size-3"
+				},
+				{
+					"fluid": {
+						"max": "1.25rem",
+						"min": "1.125rem"
+					},
+					"name": "Font Size 4",
+					"size": "1.25rem",
+					"slug": "font-size-4"
+				},
+				{
+					"fluid": {
+						"max": "1.56rem",
+						"min": "1.25rem"
+					},
+					"name": "Font Size 5",
+					"size": "1.56rem",
+					"slug": "font-size-5"
+				},
+				{
+					"fluid": {
+						"max": "1.94rem",
+						"min": "1.44rem"
+					},
+					"name": "Font Size 6",
+					"size": "1.94rem",
+					"slug": "font-size-6"
+				},
+				{
+					"fluid": {
+						"max": "2.5rem",
+						"min": "1.625rem"
+					},
+					"name": "Font Size 7",
+					"size": "2.5rem",
+					"slug": "font-size-7"
+				},
+				{
+					"fluid": {
+						"max": "3rem",
+						"min": "1.875rem"
+					},
+					"name": "Font Size 8",
+					"size": "3rem",
+					"slug": "font-size-8"
+				},
+				{
+					"fluid": {
+						"max": "3.8rem",
+						"min": "2.125rem"
+					},
+					"name": "Font Size 9",
+					"size": "3.8rem",
+					"slug": "font-size-9"
+				}
+			]
+		},
+		"useRootPaddingAwareAlignments": true
+	}
+}
