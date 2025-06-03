@@ -65,8 +65,12 @@ define( 'DB_CHARSET', getenv_docker('WORDPRESS_DB_CHARSET', 'utf8') );
 define( 'DB_COLLATE', getenv_docker('WORDPRESS_DB_COLLATE', '') );
 
 /** Base URL */
-define( 'WP_HOME', getenv_docker('WP_HOME', 'http://localhost') );
-define( 'WP_SITEURL', getenv_docker('WP_SITEURL', 'http://localhost') );
+// define( 'WP_HOME', getenv_docker('WP_HOME', 'http://localhost') );
+// define( 'WP_SITEURL', getenv_docker('WP_SITEURL', 'http://localhost') );
+
+/** Base URL */
+define( 'WP_HOME', 'https://' . $_SERVER['HTTP_HOST'] );
+define( 'WP_SITEURL', 'https://' . $_SERVER['HTTP_HOST'] );
 
 /** Custom login URL */
 define( 'WP_LOGIN_URL', WP_SITEURL . '/' . '88f8637c171503ff937484d444ba532a');
@@ -125,6 +129,11 @@ $table_prefix = getenv_docker('WORDPRESS_TABLE_PREFIX', 'wp_');
 define( 'WP_DEBUG', !!getenv_docker('WORDPRESS_DEBUG', '') );
 
 /* Add any custom values between this line and the "stop editing" line. */
+
+// Force HTTP
+define('FORCE_SSL_ADMIN', false);
+define('WP_FORCE_SSL', false);
+$_SERVER['HTTPS'] = 'off';
 
 // If we're behind a proxy server and using HTTPS, we need to alert WordPress of that fact
 // see also https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
