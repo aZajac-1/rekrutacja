@@ -42,6 +42,7 @@ function akk2blocks_init() {
     register_block_type('akk2blocks/responsive-image', array(
         'editor_script' => 'akk2blocks-blocks',
         'editor_style' => 'akk2blocks-blocks-style',
+        'style' => 'akk2blocks-blocks-style',
         'render_callback' => 'akk2blocks_render_responsive_image'
     ));
 }
@@ -57,17 +58,33 @@ function akk2blocks_render_responsive_image($attributes) {
     if (!empty($attributes['className'])) {
         $classes[] = $attributes['className'];
     }
-
+    
     $style = '';
-    if (!empty($attributes['width'])) {
-        $style .= 'width: ' . esc_attr($attributes['width']) . ';';
+    if (!empty($attributes['widthDesktop'])) {
+        $style .= '--width-desktop: ' . esc_attr($attributes['widthDesktop']['value'] . $attributes['widthDesktop']['unit']) . ';';
     }
-    if (!empty($attributes['height'])) {
-        $style .= 'height: ' . esc_attr($attributes['height']) . ';';
+    if (!empty($attributes['heightDesktop'])) {
+        $style .= '--height-desktop: ' . esc_attr($attributes['heightDesktop']['value'] === 'auto' ? 'auto' : $attributes['heightDesktop']['value'] . $attributes['heightDesktop']['unit']) . ';';
+    }
+    if (!empty($attributes['widthTablet'])) {
+        $style .= '--width-tablet: ' . esc_attr($attributes['widthTablet']['value'] . $attributes['widthTablet']['unit']) . ';';
+    }
+    if (!empty($attributes['heightTablet'])) {
+        $style .= '--height-tablet: ' . esc_attr($attributes['heightTablet']['value'] === 'auto' ? 'auto' : $attributes['heightTablet']['value'] . $attributes['heightTablet']['unit']) . ';';
+    }
+    if (!empty($attributes['widthMobile'])) {
+        $style .= '--width-mobile: ' . esc_attr($attributes['widthMobile']['value'] . $attributes['widthMobile']['unit']) . ';';
+    }
+    if (!empty($attributes['heightMobile'])) {
+        $style .= '--height-mobile: ' . esc_attr($attributes['heightMobile']['value'] === 'auto' ? 'auto' : $attributes['heightMobile']['value'] . $attributes['heightMobile']['unit']) . ';';
     }
 
     $output = '<div class="' . esc_attr(implode(' ', $classes)) . '" style="' . esc_attr($style) . '">';
-    $output .= '<img src="' . esc_url($attributes['imageUrl']) . '" alt="' . esc_attr($attributes['alt'] ?? '') . '" />';
+    $output .= '<img src="' . esc_url($attributes['imageUrl']) . '" 
+        alt="' . esc_attr($attributes['alt'] ?? '') . '" 
+        class="responsive-image"
+        loading="' . (!empty($attributes['isLazyLoad']) ? 'lazy' : 'eager') . '"
+    />';
     $output .= '</div>';
 
     return $output;

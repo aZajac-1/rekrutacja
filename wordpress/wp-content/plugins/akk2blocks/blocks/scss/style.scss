@@ -1,1 +1,40 @@
 // Styles for blocks 
+.akk2-tab-panel {
+    .components-tab-panel__tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #e2e4e7;
+        padding-bottom: 8px;
+    }
+    .components-tab-panel__tabs-item {
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+            background: #e5e5e5;
+        }
+        &.active-tab {
+            border-bottom: 5px solid #007cba;
+        }
+    }
+}
+
+.akk2-responsive-image {
+    width: min(var(--width-desktop), 100%) !important;
+    height: min(var(--height-desktop), 100%) !important;
+    @media (max-width: 1024px) {
+        width: min(var(--width-tablet), 100%) !important;
+        height: min(var(--height-tablet), 100%) !important;
+    }
+    @media (max-width: 768px) {
+        width: min(var(--width-mobile), 100%) !important;
+        height: min(var(--height-mobile), 100%) !important;
+    }
+    .responsive-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

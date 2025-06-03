@@ -46,6 +46,93 @@ var CustomSwitch = function CustomSwitch(_ref) {
 
 /***/ }),
 
+/***/ "./blocks/js/components/ResponsiveRange.js":
+/*!*************************************************!*\
+  !*** ./blocks/js/components/ResponsiveRange.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+
+
+var ResponsiveRange = function ResponsiveRange(_ref) {
+  var label = _ref.label,
+    value = _ref.value,
+    onChange = _ref.onChange,
+    _ref$min = _ref.min,
+    min = _ref$min === void 0 ? 0 : _ref$min,
+    _ref$max = _ref.max,
+    max = _ref$max === void 0 ? 100 : _ref$max,
+    _ref$step = _ref.step,
+    step = _ref$step === void 0 ? 1 : _ref$step,
+    help = _ref.help;
+  var handleValueChange = function handleValueChange(newValue) {
+    onChange(_objectSpread(_objectSpread({}, value), {}, {
+      value: newValue
+    }));
+  };
+  var handleUnitChange = function handleUnitChange(newUnit) {
+    onChange(_objectSpread(_objectSpread({}, value), {}, {
+      unit: newUnit
+    }));
+  };
+  var getMaxValue = function getMaxValue(unit) {
+    switch (unit) {
+      case 'px':
+        return 1920;
+      case '%':
+      case 'vw':
+      case 'vh':
+        return 100;
+      default:
+        return max;
+    }
+  };
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid"
+    }
+  }, /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+    label: label,
+    value: value === null || value === void 0 ? void 0 : value.value,
+    onChange: handleValueChange,
+    min: min,
+    max: getMaxValue(value === null || value === void 0 ? void 0 : value.unit),
+    step: step,
+    help: help
+  }), /*#__PURE__*/React.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
+    value: (value === null || value === void 0 ? void 0 : value.unit) || "%",
+    onChange: handleUnitChange,
+    options: [{
+      label: "%",
+      value: "%"
+    }, {
+      label: "px",
+      value: "px"
+    }, {
+      label: "vw",
+      value: "vw"
+    }, {
+      label: "vh",
+      value: "vh"
+    }]
+  }));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ResponsiveRange);
+
+/***/ }),
+
 /***/ "./blocks/js/responsiveImage.js":
 /*!**************************************!*\
   !*** ./blocks/js/responsiveImage.js ***!
@@ -60,10 +147,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_CustomSwitch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/CustomSwitch */ "./blocks/js/components/CustomSwitch.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_ResponsiveRange__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/ResponsiveRange */ "./blocks/js/components/ResponsiveRange.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__);
+
 
 
 
@@ -73,7 +162,7 @@ __webpack_require__.r(__webpack_exports__);
 
 (0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)("akk2blocks/responsive-image", {
   apiVersion: 2,
-  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Responsive Image", "akk2blocks"),
+  title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_6__.__)("Responsive Image", "akk2blocks"),
   icon: "format-image",
   category: "common",
   attributes: {
@@ -93,20 +182,6 @@ __webpack_require__.r(__webpack_exports__);
       type: "string",
       "default": ""
     },
-    width: {
-      type: "object",
-      "default": {
-        value: 100,
-        unit: "%"
-      }
-    },
-    height: {
-      type: "object",
-      "default": {
-        value: "auto",
-        unit: "px"
-      }
-    },
     isLazyLoad: {
       type: "boolean",
       "default": true
@@ -118,16 +193,61 @@ __webpack_require__.r(__webpack_exports__);
     openInNewTab: {
       type: "boolean",
       "default": false
+    },
+    widthDesktop: {
+      type: "object",
+      "default": {
+        value: 100,
+        unit: "%"
+      }
+    },
+    heightDesktop: {
+      type: "object",
+      "default": {
+        value: "auto",
+        unit: "px"
+      }
+    },
+    widthTablet: {
+      type: "object",
+      "default": {
+        value: 100,
+        unit: "%"
+      }
+    },
+    heightTablet: {
+      type: "object",
+      "default": {
+        value: "auto",
+        unit: "px"
+      }
+    },
+    widthMobile: {
+      type: "object",
+      "default": {
+        value: 100,
+        unit: "%"
+      }
+    },
+    heightMobile: {
+      type: "object",
+      "default": {
+        value: "auto",
+        unit: "px"
+      }
     }
   },
   edit: function ResponsiveImageEdit(_ref) {
     var attributes = _ref.attributes,
       setAttributes = _ref.setAttributes;
     var blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-      className: "responsive-image-block",
       style: {
-        width: "".concat(attributes.width.value).concat(attributes.width.unit),
-        height: attributes.height.value === "auto" ? "auto" : "".concat(attributes.height.value).concat(attributes.height.unit)
+        "--width-desktop": "".concat(attributes.widthDesktop.value).concat(attributes.widthDesktop.unit),
+        "--height-desktop": attributes.heightDesktop.value === "auto" ? "auto" : "".concat(attributes.heightDesktop.value).concat(attributes.heightDesktop.unit),
+        "--width-tablet": "".concat(attributes.widthTablet.value).concat(attributes.widthTablet.unit),
+        "--height-tablet": attributes.heightTablet.value === "auto" ? "auto" : "".concat(attributes.heightTablet.value).concat(attributes.heightTablet.unit),
+        "--width-mobile": "".concat(attributes.widthMobile.value).concat(attributes.widthMobile.unit),
+        "--height-mobile": attributes.heightMobile.value === "auto" ? "auto" : "".concat(attributes.heightMobile.value).concat(attributes.heightMobile.unit)
       }
     });
     var imageStyle = {
@@ -136,14 +256,12 @@ __webpack_require__.r(__webpack_exports__);
       objectFit: "cover"
     };
     var containerStyle = {
-      width: "100%",
-      height: "100%",
       overflow: "hidden"
     };
-    var imageElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("div", {
+    var imageElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
       style: containerStyle,
-      className: "responsive-image-container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("img", {
+      className: "akk2-responsive-image"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("img", {
       src: attributes.imageUrl,
       alt: attributes.alt,
       title: attributes.imageTitle,
@@ -151,10 +269,10 @@ __webpack_require__.r(__webpack_exports__);
       style: imageStyle,
       className: "responsive-image"
     }));
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement((react__WEBPACK_IMPORTED_MODULE_4___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement((react__WEBPACK_IMPORTED_MODULE_5___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
       title: "Ustawienia obrazu",
       initialOpen: true
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
       onSelect: function onSelect(media) {
         setAttributes({
           imageUrl: media.url,
@@ -167,7 +285,7 @@ __webpack_require__.r(__webpack_exports__);
       value: attributes.imageId,
       render: function render(_ref2) {
         var open = _ref2.open;
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
           onClick: open,
           variant: "secondary",
           style: {
@@ -176,7 +294,7 @@ __webpack_require__.r(__webpack_exports__);
           }
         }, attributes.imageUrl ? "Zmień obraz" : "Wybierz obraz");
       }
-    })), attributes.imageUrl && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    })), attributes.imageUrl && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
       onClick: function onClick() {
         setAttributes({
           imageUrl: "",
@@ -190,7 +308,7 @@ __webpack_require__.r(__webpack_exports__);
       style: {
         marginBottom: "15px"
       }
-    }, "Usu\u0144 obraz"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    }, "Usu\u0144 obraz"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
       label: "Tekst alternatywny",
       value: attributes.alt,
       onChange: function onChange(value) {
@@ -201,7 +319,7 @@ __webpack_require__.r(__webpack_exports__);
       style: {
         marginBottom: "15px"
       }
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
       label: "Link URL",
       value: attributes.linkUrl,
       onChange: function onChange(value) {
@@ -212,7 +330,7 @@ __webpack_require__.r(__webpack_exports__);
       style: {
         marginBottom: "15px"
       }
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement(_components_CustomSwitch__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_components_CustomSwitch__WEBPACK_IMPORTED_MODULE_3__["default"], {
       label: "Lazy loading",
       checked: attributes.isLazyLoad,
       onChange: function onChange(value) {
@@ -221,7 +339,68 @@ __webpack_require__.r(__webpack_exports__);
         });
       },
       size: "default"
-    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("div", blockProps, attributes.imageUrl && (attributes.linkUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("a", {
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TabPanel, {
+      className: "akk2-tab-panel",
+      activeClass: "active-tab",
+      tabs: [{
+        name: "desktop",
+        title: "Desktop",
+        className: "tab-desktop"
+      }, {
+        name: "tablet",
+        title: "Tablet",
+        className: "tab-tablet"
+      }, {
+        name: "mobile",
+        title: "Mobile",
+        className: "tab-mobile"
+      }]
+    }, function (tab) {
+      var isDesktop = tab.name === "desktop";
+      var isTablet = tab.name === "tablet";
+      var isMobile = tab.name === "mobile";
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_components_ResponsiveRange__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        label: "Width",
+        value: isDesktop ? attributes.widthDesktop : isTablet ? attributes.widthTablet : attributes.widthMobile,
+        onChange: function onChange(value) {
+          if (isDesktop) {
+            setAttributes({
+              widthDesktop: value
+            });
+          } else if (isTablet) {
+            setAttributes({
+              widthTablet: value
+            });
+          } else {
+            setAttributes({
+              widthMobile: value
+            });
+          }
+        },
+        min: 0,
+        max: 1920
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement(_components_ResponsiveRange__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        label: "Height",
+        value: isDesktop ? attributes.heightDesktop : isTablet ? attributes.heightTablet : attributes.heightMobile,
+        onChange: function onChange(value) {
+          if (isDesktop) {
+            setAttributes({
+              heightDesktop: value
+            });
+          } else if (isTablet) {
+            setAttributes({
+              heightTablet: value
+            });
+          } else {
+            setAttributes({
+              heightMobile: value
+            });
+          }
+        },
+        min: 0,
+        max: 1920
+      }));
+    }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", blockProps, attributes.imageUrl && (attributes.linkUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("a", {
       href: attributes.linkUrl,
       target: attributes.openInNewTab ? "_blank" : "_self",
       rel: attributes.openInNewTab ? "noopener noreferrer" : ""
@@ -230,10 +409,13 @@ __webpack_require__.r(__webpack_exports__);
   save: function ResponsiveImageSave(_ref3) {
     var attributes = _ref3.attributes;
     var blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-      className: "responsive-image-block",
       style: {
-        width: "".concat(attributes.width.value).concat(attributes.width.unit),
-        height: attributes.height.value === "auto" ? "auto" : "".concat(attributes.height.value).concat(attributes.height.unit)
+        "--width-desktop": "".concat(attributes.widthDesktop.value).concat(attributes.widthDesktop.unit),
+        "--height-desktop": attributes.heightDesktop.value === "auto" ? "auto" : "".concat(attributes.heightDesktop.value).concat(attributes.heightDesktop.unit),
+        "--width-tablet": "".concat(attributes.widthTablet.value).concat(attributes.widthTablet.unit),
+        "--height-tablet": attributes.heightTablet.value === "auto" ? "auto" : "".concat(attributes.heightTablet.value).concat(attributes.heightTablet.unit),
+        "--width-mobile": "".concat(attributes.widthMobile.value).concat(attributes.widthMobile.unit),
+        "--height-mobile": attributes.heightMobile.value === "auto" ? "auto" : "".concat(attributes.heightMobile.value).concat(attributes.heightMobile.unit)
       }
     });
     var imageStyle = {
@@ -242,14 +424,11 @@ __webpack_require__.r(__webpack_exports__);
       objectFit: "cover"
     };
     var containerStyle = {
-      width: "100%",
-      height: "100%",
       overflow: "hidden"
     };
-    var imageElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("div", {
-      style: containerStyle,
-      className: "responsive-image-container"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("img", {
+    var imageElement = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", {
+      style: containerStyle
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("img", {
       src: attributes.imageUrl,
       alt: attributes.alt,
       title: attributes.imageTitle,
@@ -257,7 +436,7 @@ __webpack_require__.r(__webpack_exports__);
       style: imageStyle,
       className: "responsive-image"
     }));
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("div", blockProps, attributes.imageUrl && (attributes.linkUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_4___default().createElement("a", {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("div", blockProps, attributes.imageUrl && (attributes.linkUrl ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_5___default().createElement("a", {
       href: attributes.linkUrl,
       target: attributes.openInNewTab ? "_blank" : "_self",
       rel: attributes.openInNewTab ? "noopener noreferrer" : ""
@@ -275,6 +454,101 @@ __webpack_require__.r(__webpack_exports__);
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/defineProperty.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _defineProperty)
+/* harmony export */ });
+/* harmony import */ var _toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./toPropertyKey.js */ "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js");
+
+function _defineProperty(e, r, t) {
+  return (r = (0,_toPropertyKey_js__WEBPACK_IMPORTED_MODULE_0__["default"])(r)) in e ? Object.defineProperty(e, r, {
+    value: t,
+    enumerable: !0,
+    configurable: !0,
+    writable: !0
+  }) : e[r] = t, e;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/toPrimitive.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/toPrimitive.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ toPrimitive)
+/* harmony export */ });
+/* harmony import */ var _typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeof.js */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+
+function toPrimitive(t, r) {
+  if ("object" != (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(t) || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r || "default");
+    if ("object" != (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(i)) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r ? String : Number)(t);
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/toPropertyKey.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ toPropertyKey)
+/* harmony export */ });
+/* harmony import */ var _typeof_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./typeof.js */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+/* harmony import */ var _toPrimitive_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./toPrimitive.js */ "./node_modules/@babel/runtime/helpers/esm/toPrimitive.js");
+
+
+function toPropertyKey(t) {
+  var i = (0,_toPrimitive_js__WEBPACK_IMPORTED_MODULE_1__["default"])(t, "string");
+  return "symbol" == (0,_typeof_js__WEBPACK_IMPORTED_MODULE_0__["default"])(i) ? i : i + "";
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/typeof.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/typeof.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _typeof)
+/* harmony export */ });
+function _typeof(o) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) {
+    return typeof o;
+  } : function (o) {
+    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+  }, _typeof(o);
+}
 
 
 /***/ }),
