@@ -1,0 +1,17 @@
+{
+  "name": "WordPress Development",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "wordpress",
+  "workspaceFolder": "/var/www/html",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "wordpresstools.wordpress",
+        "tungvn.wordpress-snippet",
+        "wordpresstools.wordpress-snippet"
+      ]
+    }
+  },
+  "forwardPorts": [8000],
+  "postCreateCommand": "chown -R www-data:www-data /var/www/html"
+} 
