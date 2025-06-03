@@ -90,3 +90,7 @@ W przypadku pytań lub problemów, prosimy o kontakt z zespołem rekrutacyjnym.
 ## Licencja
 
 Ten projekt jest przeznaczony wyłącznie do celów rekrutacyjnych.
+
+## Github code sprawdzenie adresu aplikacji
+
+docker inspect rekrutacja-db_rekrutacja-1 | grep IPAddress | cat

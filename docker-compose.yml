@@ -5,31 +5,24 @@ services:
         ports:
             - "80:80"
         environment:
-            WORDPRESS_DB_HOST: ${DB_HOST}
-            WORDPRESS_DB_NAME: ${DB_NAME}
-            WORDPRESS_DB_USER: ${DB_USER}
-            WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
-            WP_HOME: ${WP_HOME}
-            WP_SITEURL: ${WP_SITEURL}
-            WP_LOGIN_URL: ${WP_LOGIN_URL}
-            WP_DEBUG: ${WP_DEBUG}
+            WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+            WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+            WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+            WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
         volumes:
             - ./wordpress:/var/www/html
-            - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-            - ./.env:/var/www/html/.env
-            - ./wp-config.php:/var/www/html/wp-config.php
+            - .env:/var/www/html/.env
         depends_on:
             - db_rekrutacja
 
     # MySQL
     db_rekrutacja:
-        image: mariadb:10.6
-        platform: linux/arm64/v8
+        image: mariadb:10.6-focal
+        platform: linux/amd64
         environment:
-            MYSQL_DATABASE: ${DB_NAME}
-            MYSQL_USER: ${DB_USER}
-            MYSQL_PASSWORD: ${DB_PASSWORD}
-            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+            MYSQL_USER: ${WORDPRESS_DB_USER}
+            MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
         volumes:
             - db_data:/var/lib/mysql
 
@@ -40,7 +33,6 @@ services:
             - "8089:80"
         environment:
             PMA_HOST: db_rekrutacja
-            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
         depends_on:
             - db_rekrutacja
 
