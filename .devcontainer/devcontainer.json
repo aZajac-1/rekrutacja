@@ -2,7 +2,7 @@
   "name": "WordPress Development",
   "dockerComposeFile": "../docker-compose.yml",
   "service": "wordpress",
-  "workspaceFolder": "/var/www/html",
+  "workspaceFolder": "/workspaces/Rekrutacja",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,6 +12,6 @@
       ]
     }
   },
-  "forwardPorts": [8000],
-  "postCreateCommand": "chown -R www-data:www-data /var/www/html"
+  "forwardPorts": [443],
+  "postCreateCommand": "docker-compose up -d"
 } 
